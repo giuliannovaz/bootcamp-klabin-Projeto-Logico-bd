@@ -1,0 +1,8 @@
+Tabela,Atributos,Chave Primária (PK),Chaves Estrangeiras (FK),Observações
+PAGAMENTO,"idPagamento (INT), TipoPagamento (ENUM), Bandeira (VARCHAR), idPedido (INT)",idPagamento,idPedido (FK referenciando PEDIDO),Permite múltiplos pagamentos por pedido.
+PAGAMENTO_CLIENTE,"idCliente (INT), idPagamento (INT)","Composta: idCliente, idPagamento","idCliente (FK ref. CLIENTE), idPagamento (FK ref. PAGAMENTO)",Relação N:M entre Cliente e Pagamento (para histórico/cadastro de formas).
+PRODUTO_VENDEDOR,"idPVendedor (INT), idProduto (INT), Quantidade (INT)","Composta: idPVendedor, idProduto","idPVendedor (FK ref. VENDEDOR), idProduto (FK ref. PRODUTO)",Relação N:M (Produtos vendidos por Vendedor).
+PRODUTO_PEDIDO,"idPPedido (INT), idPProduto (INT), Quantidade (INT), Status (ENUM)","Composta: idPPedido, idPProduto","idPPedido (FK ref. PEDIDO), idPProduto (FK ref. PRODUTO)",Relação N:M (Produtos em Pedido).
+PRODUTO_EM_ESTOQUE,"idPEstoque (INT), idPProduto (INT), Local (VARCHAR), Quantidade (INT)","Composta: idPEstoque, idPProduto","idPEstoque (FK ref. ESTOQUE), idPProduto (FK ref. PRODUTO)",Relação N:M (Produtos em Estoque).
+PRODUTO_FORNECEDOR,"idPFornedor (INT), idPProduto (INT)","Composta: idPFornedor, idPProduto","idPFornedor (FK ref. FORNECEDOR), idPProduto (FK ref. PRODUTO)",Relação N:M (Produtos Fornecidos).
+ENTREGA,"idEntrega (INT), StatusEntrega (ENUM), CodigoRastreio (VARCHAR), idPedido (INT)",idEntrega,idPedido (FK referenciando PEDIDO),Entidade Fraca (Dependente de PEDIDO).
