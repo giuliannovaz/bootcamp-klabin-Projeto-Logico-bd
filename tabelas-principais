@@ -1,0 +1,9 @@
+Tabela,Atributos,Chave Primária (PK),Chaves Estrangeiras (FK),Constraints,Observações
+CLIENTE,"idClient (INT), Endereco (VARCHAR), CPF_ou_CNPJ (VARCHAR)",idClient,,CPF_ou_CNPJ é UNIQUE e NOT NULL,Superclasse para PJ/PF.
+CLIENTE_PF,"idPF (INT), Nome (VARCHAR), CPF (CHAR(11))",idPF,idPF (FK referenciando CLIENTE),CPF é UNIQUE e NOT NULL,Subclasse PF. idPF é PK e FK.
+CLIENTE_PJ,"idPJ (INT), RazaoSocial (VARCHAR), CNPJ (CHAR(14))",idPJ,idPJ (FK referenciando CLIENTE),CNPJ é UNIQUE e NOT NULL,Subclasse PJ. idPJ é PK e FK.
+PRODUTO,"idProduto (INT), NomeProduto (VARCHAR), Categoria (ENUM), Descricao (VARCHAR), Valor (DECIMAL)",idProduto,,Valor NOT NULL,
+PEDIDO,"idPedido (INT), StatusPedido (ENUM), Descricao (VARCHAR), Frete (DECIMAL), idCliente (INT), DataPedido (DATE)",idPedido,idCliente (FK referenciando CLIENTE),StatusPedido NOT NULL,
+ESTOQUE,"idEstoque (INT), Local (VARCHAR)",idEstoque,,Local NOT NULL,
+FORNECEDOR,"idFornecedor (INT), RazaoSocial (VARCHAR), CNPJ (CHAR(14))",idFornecedor,,CNPJ é UNIQUE e NOT NULL,
+VENDEDOR,"idVendedor (INT), RazaoSocial (VARCHAR), CNPJ (CHAR(14))",idVendedor,,CNPJ é UNIQUE e NOT NULL,
